@@ -19,6 +19,8 @@
 %%% Preliminary declarations:
 %%%% These are some commands where we declare new commands for the class
 
+% We define the macro for the id of the author
+\newcommand{\authorid}[1]{\newcommand{\idloc}{#1}}
 % We define the macro for the name of the professor
 \newcommand{\professor}[1]{ \newcommand{\professorloc}{#1} }
 % We define the macro for the name of the course
@@ -30,6 +32,7 @@
 \newcommand{\CourseLang}{Course}
 \newcommand{\DateLang}{Due date}
 \newcommand{\StudentLang}{Student name}
+\newcommand{\StudentID}{Student ID}
 \newcommand{\ProfessorLang}{Professor}
 
 % Header and footers, we will use the titles also
@@ -53,6 +56,7 @@
     \renewcommand{\ProfessorLang}{Docente}
     \renewcommand{\DateLang}{Fecha de entrega}
     \renewcommand{\StudentLang}{Nombre estudiante}
+    \renewcommand{\StudentID}{Nombre estudiante}
 }
 
 \PassOptionsToClass{a4paper}{article}
@@ -105,6 +109,7 @@
         \vspace{10pt}
         {\LARGE \bfseries \@title} \\[5pt]
         \StudentLang: {\itshape \@author}
+        \ifx\idloc\undefined{}\else{-- \StudentID: {\idloc}}\fi 
         \vspace{8pt}
         \hrule
         \vspace{10pt}
